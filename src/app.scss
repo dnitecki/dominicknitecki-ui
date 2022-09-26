@@ -32,12 +32,17 @@ html {
   margin: 0;
   overflow: overlay;
   scroll-behavior: smooth !important;
+  color: #fff;
 }
 html:focus-within {
   scroll-behavior: smooth;
 }
 a {
   text-decoration: none;
+}
+button {
+  border: none;
+  background: none;
 }
 
 @keyframes gradient {

@@ -5,9 +5,11 @@ import { init } from "ityped";
 import { useEffect, useRef } from "react";
 import useSound from "use-sound";
 import headshot from "../assets/headshot.png";
+import welcomeSound from "../assets/MA_Readsounds_InterfaceNotification_7.wav";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function Welcome() {
-  const welcomeSound = "./assets/MA_Readsounds_InterfaceNotification_7.wav";
   const [play] = useSound(welcomeSound, {
     volume: 0.3,
   });
@@ -55,16 +57,32 @@ export default function Welcome() {
       variants={pageVariants}
       transition={pageTransitions}
     >
-      <div className="wrapper-welcome">
-        <div className="header-welcome">
-          <div className="title-top">Hi there, I'm</div>
-          <div className="title-bottom">
-            <span ref={textRef}></span>
+      <div className="welcome">
+        <div className="welcome-container">
+          <div className="welcome-header">
+            <div className="title-top">Hi there, I'm</div>
+            <div className="title-bottom">
+              <span ref={textRef}></span>
+            </div>
           </div>
-        </div>
-        <div className="body-wrapper">
-          <div className="pulse">
+          <div className="welcome-body">
+            <div className="pulse">
+              <button
+                className="welcome-button"
+                onClick={() => {
+                  play();
+                  navigate("/aboutme", {
+                    state: { from: location },
+                    replace: true,
+                  });
+                }}
+              ></button>
+              <img className="headshot" src={headshot} alt="headshot" />
+            </div>
+          </div>
+          <div className="welcome-footer">
             <button
+              className="down-arrow"
               onClick={() => {
                 play();
                 navigate("/aboutme", {
@@ -72,24 +90,10 @@ export default function Welcome() {
                   replace: true,
                 });
               }}
-              class="button"
-            ></button>
-            <img class="headshot" src={headshot} alt="headshot" />
+            >
+              <FontAwesomeIcon icon={faChevronDown} />
+            </button>
           </div>
-        </div>
-        <div class="footer-welcome">
-          <img
-            className="down-arrow"
-            onClick={() => {
-              play();
-              navigate("/aboutme", {
-                state: { from: location },
-                replace: true,
-              });
-            }}
-            src="./assets/interface-arrows-button-down.svg"
-            alt="icon"
-          />
         </div>
       </div>
     </motion.div>
