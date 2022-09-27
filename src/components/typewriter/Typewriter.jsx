@@ -6,7 +6,7 @@ export default function TypewriterEffect() {
     <>
       <Typewriter
         options={{
-          strings: ["Dominick ", "a developer "],
+          strings: ["Dominick. ", "a software engineer. "],
           autoStart: true,
           delay: 75,
           loop: true,
