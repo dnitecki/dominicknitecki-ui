@@ -5,6 +5,8 @@
   transition: all ease 0.5s;
   position: relative;
 }
+.welcome-background {
+}
 .welcome-container {
   display: flex;
   flex-direction: column;
@@ -86,8 +88,8 @@
   transition: all 0.3s ease-out;
 }
 .welcome-button {
-  height: 10rem;
-  width: 10rem;
+  height: 12rem;
+  width: 12rem;
   background: linear-gradient(
     -45deg,
     transparent,
@@ -114,13 +116,13 @@
   display: grid;
 }
 .headshot {
-  height: 10rem;
-  width: 10rem;
+  height: 12rem;
+  width: 12rem;
   position: absolute;
 }
 .pulse {
-  height: 10.5rem;
-  width: 10.5rem;
+  height: 12.5rem;
+  width: 12.5rem;
   background: linear-gradient(
     rgba(211, 211, 211, 0.4),
     rgba(192, 192, 192, 0.4)
@@ -138,8 +140,8 @@
 .pulse:before,
 .pulse:after {
   content: "";
-  height: 10.5rem;
-  width: 10.5rem;
+  height: 12.5rem;
+  width: 12.5rem;
   position: absolute;
   background-color: #b8b8b8;
   border-radius: 50%;
@@ -152,9 +154,7 @@
 .pulse:after {
   animation: pulse 6s 3s ease-out infinite;
 }
-.ityped-cursor {
-  animation: blink 1s infinite;
-}
+
 @keyframes blink {
   50% {
     opacity: 1;

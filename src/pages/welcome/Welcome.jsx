@@ -1,4 +1,5 @@
 import "./Welcome.scss";
+import "./Stars.scss";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import useSound from "use-sound";
@@ -30,7 +31,7 @@ export default function Welcome() {
     },
   };
   const pageTransitions = {
-    duration: 1.25,
+    duration: 1.5,
     type: "tween",
     ease: "easeOut",
   };
@@ -39,26 +40,46 @@ export default function Welcome() {
   };
 
   return (
-    <motion.div
-      style={pageStyle}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={pageVariants}
-      transition={pageTransitions}
-    >
-      <div className="welcome">
-        <div className="welcome-container">
-          <div className="welcome-header">
-            <div className="title-top">Hi there, I'm</div>
-            <div className="title-bottom">
-              <TypewriterEffect />
-            </div>
+    <>
+      <motion.div
+        style={pageStyle}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        variants={pageVariants}
+        transition={pageTransitions}
+      >
+        <div className="welcome">
+          <div className="welcome-background">
+            <div id="stars"></div>
+            <div id="stars2"></div>
+            <div id="stars3"></div>
           </div>
-          <div className="welcome-body">
-            <div className="pulse">
+          <div className="welcome-container">
+            <div className="welcome-header">
+              <div className="title-top">Hi there, I'm</div>
+              <div className="title-bottom">
+                <TypewriterEffect />
+              </div>
+            </div>
+            <div className="welcome-body">
+              <div className="pulse">
+                <button
+                  className="welcome-button"
+                  onClick={() => {
+                    play();
+                    navigate("/aboutme", {
+                      state: { from: location },
+                      replace: true,
+                    });
+                  }}
+                ></button>
+                <img className="headshot" src={headshot} alt="headshot" />
+              </div>
+            </div>
+            <div className="welcome-footer">
               <button
-                className="welcome-button"
+                className="down-arrow"
                 onClick={() => {
                   play();
                   navigate("/aboutme", {
@@ -66,26 +87,13 @@ export default function Welcome() {
                     replace: true,
                   });
                 }}
-              ></button>
-              <img className="headshot" src={headshot} alt="headshot" />
+              >
+                <FontAwesomeIcon icon={faChevronDown} />
+              </button>
             </div>
           </div>
-          <div className="welcome-footer">
-            <button
-              className="down-arrow"
-              onClick={() => {
-                play();
-                navigate("/aboutme", {
-                  state: { from: location },
-                  replace: true,
-                });
-              }}
-            >
-              <FontAwesomeIcon icon={faChevronDown} />
-            </button>
-          </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </>
   );
 }
