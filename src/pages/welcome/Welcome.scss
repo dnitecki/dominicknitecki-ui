@@ -59,7 +59,7 @@
   height: fit-content;
   width: fit-content;
   color: #fff;
-  font-size: 40px;
+  font-size: 50px;
 }
 .welcome-button:hover {
   cursor: pointer;
@@ -154,7 +154,15 @@
 .pulse:after {
   animation: pulse 6s 3s ease-out infinite;
 }
-
+.bounce {
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-name: bounce;
+  animation-timing-function: ease-in-out;
+}
+.bounce:hover {
+  animation-play-state: paused;
+}
 @keyframes blink {
   50% {
     opacity: 1;
@@ -178,6 +186,28 @@
   100% {
     transform: scale(1.6);
     opacity: 0;
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  10% {
+    transform: translateY(15px);
+    opacity: 0.6;
+  }
+  20% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
   }
 }
 @media all and (max-width: 600px) {

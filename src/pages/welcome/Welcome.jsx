@@ -83,7 +83,7 @@ export default function Welcome() {
             </div>
             <div className="welcome-footer">
               <button
-                className="down-arrow"
+                className="down-arrow bounce"
                 onClick={() => {
                   play();
                   navigate("/aboutme", {
