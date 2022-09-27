@@ -5,7 +5,14 @@
   transition: all ease 0.5s;
   position: relative;
 }
-.welcome-background {
+.my-icon {
+  display: flex;
+  position: absolute;
+  height: fit-content;
+  width: fit-content;
+  margin-left: 4rem;
+  margin-top: 4rem;
+  color: #fff;
 }
 .welcome-container {
   display: flex;

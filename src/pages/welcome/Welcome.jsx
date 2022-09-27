@@ -8,6 +8,7 @@ import welcomeSound from "../../assets/MA_Readsounds_InterfaceNotification_7.wav
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import TypewriterEffect from "../../components/typewriter/Typewriter";
+import MyIcon from "../../components/myIcon/MyIcon";
 
 export default function Welcome() {
   const [play] = useSound(welcomeSound, {
@@ -50,6 +51,9 @@ export default function Welcome() {
         transition={pageTransitions}
       >
         <div className="welcome">
+          <div className="my-icon">
+            <MyIcon />
+          </div>
           <div className="welcome-background">
             <div id="stars"></div>
             <div id="stars2"></div>
