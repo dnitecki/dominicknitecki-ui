@@ -1,6 +1,6 @@
 import "./app.scss";
 import { Route, Routes } from "react-router-dom";
-import Welcome from "./pages/Welcome";
+import Welcome from "./pages/welcome/Welcome";
 
 function App() {
   return (

@@ -1,13 +1,12 @@
 import "./Welcome.scss";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { init } from "ityped";
-import { useEffect, useRef } from "react";
 import useSound from "use-sound";
-import headshot from "../assets/headshot.png";
-import welcomeSound from "../assets/MA_Readsounds_InterfaceNotification_7.wav";
+import headshot from "../../assets/headshot.png";
+import welcomeSound from "../../assets/MA_Readsounds_InterfaceNotification_7.wav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import TypewriterEffect from "../../components/typewriter/Typewriter";
 
 export default function Welcome() {
   const [play] = useSound(welcomeSound, {
@@ -15,16 +14,7 @@ export default function Welcome() {
   });
   let navigate = useNavigate();
   const location = useLocation();
-  const textRef = useRef();
 
-  useEffect(() => {
-    init(textRef.current, {
-      showCursor: true,
-      backDelay: 1500,
-      backSpeed: 60,
-      strings: ["Dominick.", "a developer.", "self-driven."],
-    });
-  }, []);
   const pageVariants = {
     animate: {
       opacity: 1,
@@ -62,7 +52,7 @@ export default function Welcome() {
           <div className="welcome-header">
             <div className="title-top">Hi there, I'm</div>
             <div className="title-bottom">
-              <span ref={textRef}></span>
+              <TypewriterEffect />
             </div>
           </div>
           <div className="welcome-body">
