@@ -18,7 +18,7 @@ export default function About() {
     },
   };
   const pageTransitions = {
-    duration: 1,
+    duration: 1.5,
     type: "tween",
     ease: "easeOut",
   };
