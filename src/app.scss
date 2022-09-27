@@ -42,7 +42,11 @@ a {
 }
 button {
   border: none;
-  background: none;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+button:focus {
+  background-color: transparent;
 }
 
 @keyframes gradient {

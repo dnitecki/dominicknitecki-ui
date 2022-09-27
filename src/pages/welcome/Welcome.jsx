@@ -63,7 +63,11 @@ export default function Welcome() {
               </div>
             </div>
             <div className="welcome-body">
-              <div className="pulse">
+              <motion.div
+                drag
+                dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+                className="pulse"
+              >
                 <button
                   className="welcome-button"
                   onClick={() => {
@@ -75,7 +79,7 @@ export default function Welcome() {
                   }}
                 ></button>
                 <img className="headshot" src={headshot} alt="headshot" />
-              </div>
+              </motion.div>
             </div>
             <div className="welcome-footer">
               <button

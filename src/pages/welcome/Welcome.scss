@@ -55,10 +55,10 @@
   opacity: 0.8;
 }
 .down-arrow {
-  filter: invert(1);
   opacity: 0.5;
   height: fit-content;
   width: fit-content;
+  color: #fff;
   font-size: 40px;
 }
 .welcome-button:hover {
@@ -178,5 +178,48 @@
   100% {
     transform: scale(1.6);
     opacity: 0;
+  }
+}
+@media all and (max-width: 600px) {
+  .welcome-header {
+    row-gap: 0.5rem;
+  }
+  .title-top {
+    font-size: 1.5rem;
+  }
+  .title-bottom {
+    font-size: 2rem;
+  }
+  .welcome-button {
+    height: 10rem;
+    width: 10rem;
+  }
+  .headshot {
+    height: 10rem;
+    width: 10rem;
+  }
+  .pulse {
+    height: 10.5rem;
+    width: 10.5rem;
+  }
+  .pulse:before,
+  .pulse:after {
+    height: 10.5rem;
+    width: 10.5rem;
+  }
+  .pulse:before {
+    animation: pulse 6s ease-out infinite;
+  }
+  .pulse:after {
+    animation: pulse 6s 3s ease-out infinite;
+  }
+  .welcome-button:hover:after {
+    width: 120%;
+    background-color: rgba(255, 255, 255, 0);
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
   }
 }
