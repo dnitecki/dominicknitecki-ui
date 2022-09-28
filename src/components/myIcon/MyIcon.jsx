@@ -1,4 +1,5 @@
 import React from "react";
+import "./MyIcon.scss";
 
 export default function MyIcon() {
   return (
@@ -6,49 +7,30 @@ export default function MyIcon() {
       <svg
         id="Layer_2"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 201.09 342"
+        width="227.09"
+        height="309.48"
+        viewBox="0 0 227.09 309.48"
       >
-        <defs>
-          <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
-            <feOffset dx="5" dy="7" />
-            <feGaussianBlur result="blur" stdDeviation="5" />
-            <feFlood floodColor="#000" floodOpacity=".75" />
-            <feComposite in2="blur" operator="in" />
-            <feComposite in="SourceGraphic" />
-          </filter>
-          <filter id="drop-shadow-2" filterUnits="userSpaceOnUse">
-            <feOffset dx="5" dy="7" />
-            <feGaussianBlur result="blur-2" stdDeviation="5" />
-            <feFlood floodColor="#000" floodOpacity=".75" />
-            <feComposite in2="blur-2" operator="in" />
-            <feComposite in="SourceGraphic" />
-          </filter>
-          <filter id="drop-shadow-3" filterUnits="userSpaceOnUse">
-            <feOffset dx="5" dy="7" />
-            <feGaussianBlur result="blur-3" stdDeviation="5" />
-            <feFlood floodColor="#000" floodOpacity=".75" />
-            <feComposite in2="blur-3" operator="in" />
-            <feComposite in="SourceGraphic" />
-          </filter>
-        </defs>
+        <defs></defs>
         <g id="Layer_1-2">
           <g>
-            <g>
-              <polyline
-                className="cls-3"
-                points="134.34 250.16 43.97 157.45 43.97 319.3 10.19 319.3 10.19 77.22 134.14 203.74"
-              />
-              <polyline
-                className="cls-2"
-                points="10.68 78.07 101.05 170.78 101.05 8.93 134.83 8.93 134.83 251.01 10.88 124.49"
-              />
-            </g>
-            <g className="cls-4">
-              <path
-                class="cls-1"
-                d="M9.68,76.06V42.29H80.41c78.82,0,120.69,52.78,120.69,118.22,0,65.45-43.63,118.22-120.69,118.22H9.68v-33.78H89.2c46.1,0,78.11-37.65,78.11-84.45s-32.02-84.44-78.11-84.44H9.68"
-              />
-            </g>
+            <polygon
+              style={{
+                fill: "#fff",
+                filter: "drop-shadow(0 0.2rem 1rem rgba(0, 0, 0, 0.325))",
+              }}
+              className="svg-class"
+              class="cls-1"
+              points="160.83 0 160.83 245.01 147.93 231.85 69.97 152.27 69.97 309.48 36.19 309.48 36.2 117.8 36.19 115.46 36.19 71.2 38.81 73.89 127.05 164.78 127.05 0 160.83 0"
+            />
+            <path
+              style={{
+                fill: "#fff",
+                filter: "drop-shadow(0 0.2rem 1rem rgba(0, 0, 0, 0.325))",
+              }}
+              class="cls-1"
+              d="M227.09,154.51c0,17.79-3.22,34.65-9.47,49.76-.55,1.36-1.14,2.7-1.75,4.03-.61,1.32-1.24,2.63-1.89,3.92-.84,1.66-1.72,3.3-2.63,4.91l-.06,.1c-1.28,2.23-2.63,4.41-4.05,6.53-19.91,29.7-54.27,48.97-100.83,48.97H0v-33.78H115.2c11.96,0,22.97-2.54,32.73-7.1l12.9,13.16v-20.94c8.21-6.16,15.11-14.01,20.41-23.1,7.75-13.31,12.08-29.27,12.08-46.46,0-27.23-10.84-51.36-28.99-66.78-1.14-.97-2.31-1.9-3.5-2.79-9.61-7.22-21.02-12.14-33.78-14.02-3.83-.57-7.78-.86-11.85-.86H0V36.29H106.41c7.19,0,14.07,.44,20.64,1.3,12.37,1.58,23.64,4.63,33.78,8.92,10.3,4.36,19.44,10,27.4,16.72,25.62,21.66,38.86,54.47,38.86,91.28Z"
+            />
           </g>
         </g>
       </svg>
