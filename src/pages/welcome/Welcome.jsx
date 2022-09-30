@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import "./Welcome.scss";
 import "./Stars.scss";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -8,14 +9,26 @@ import welcomeSound from "../../assets/MA_Readsounds_InterfaceNotification_7.wav
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import TypewriterEffect from "../../components/typewriter/Typewriter";
-import MyIcon from "../../components/myIcon/MyIcon";
 
 export default function Welcome() {
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    const welcomeModal = () => {
+      setShowModal(true);
+      setTimeout(() => {
+        setShowModal(false);
+      }, 4000);
+    };
+    welcomeModal();
+  }, []);
+
+  let navigate = useNavigate();
+  const location = useLocation();
+
   const [play] = useSound(welcomeSound, {
     volume: 0.3,
   });
-  let navigate = useNavigate();
-  const location = useLocation();
 
   const pageVariants = {
     animate: {
@@ -24,7 +37,7 @@ export default function Welcome() {
     },
     initial: {
       opacity: 0,
-      y: "100vh",
+      y: "-100vh",
     },
     exit: {
       opacity: 0,
@@ -42,38 +55,57 @@ export default function Welcome() {
 
   return (
     <>
-      <motion.div
-        style={pageStyle}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        variants={pageVariants}
-        transition={pageTransitions}
-      >
-        <div className="welcome">
-          <div className="my-icon">
-            <MyIcon />
+      <div className="welcome">
+        {showModal ? (
+          <div className="welcome-modal modal-on">
+            <div className="welcome-modal-text">Hi there!</div>
           </div>
-          <div className="welcome-background">
-            <div id="stars"></div>
-            <div id="stars2"></div>
-            <div id="stars3"></div>
-          </div>
-          <div className="welcome-container">
-            <div className="welcome-header">
-              <div className="title-top">Hi there, I'm</div>
-              <div className="title-bottom">
-                <TypewriterEffect />
-              </div>
+        ) : (
+          <div className="welcome-modal modal-off"></div>
+        )}
+        <motion.div
+          style={pageStyle}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={pageVariants}
+          transition={pageTransitions}
+        >
+          <div className="welcome-content">
+            <div className="welcome-background">
+              <div id="stars"></div>
+              <div id="stars2"></div>
+              <div id="stars3"></div>
             </div>
-            <div className="welcome-body">
-              <motion.div
-                drag
-                dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
-                className="pulse"
-              >
+            <div className="welcome-container">
+              <div className="welcome-header">
+                <div className="title-top">Hi there, I'm</div>
+                <div className="title-bottom">
+                  <TypewriterEffect />
+                </div>
+              </div>
+              <div className="welcome-body">
+                <motion.div
+                  drag
+                  dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+                  className="pulse"
+                >
+                  <button
+                    className="welcome-button"
+                    onClick={() => {
+                      play();
+                      navigate("/aboutme", {
+                        state: { from: location },
+                        replace: true,
+                      });
+                    }}
+                  ></button>
+                  <img className="headshot" src={headshot} alt="headshot" />
+                </motion.div>
+              </div>
+              <div className="welcome-footer">
                 <button
-                  className="welcome-button"
+                  className="down-arrow bounce"
                   onClick={() => {
                     play();
                     navigate("/aboutme", {
@@ -81,27 +113,14 @@ export default function Welcome() {
                       replace: true,
                     });
                   }}
-                ></button>
-                <img className="headshot" src={headshot} alt="headshot" />
-              </motion.div>
-            </div>
-            <div className="welcome-footer">
-              <button
-                className="down-arrow bounce"
-                onClick={() => {
-                  play();
-                  navigate("/aboutme", {
-                    state: { from: location },
-                    replace: true,
-                  });
-                }}
-              >
-                <FontAwesomeIcon icon={faChevronDown} />
-              </button>
+                >
+                  <FontAwesomeIcon icon={faChevronDown} />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </>
   );
 }
