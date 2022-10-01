@@ -5,19 +5,12 @@
   overflow: hidden;
 }
 
-.welcome-content {
-  height: 100vh;
-  width: 100vw;
-  transition: all ease 0.5s;
-  position: relative;
-}
 .welcome-modal {
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
   background: transparent;
-  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,16 +20,19 @@
 .modal-on {
   opacity: 1;
   z-index: 1000;
+  backdrop-filter: blur(10px);
 }
 .modal-off {
   opacity: 0;
   z-index: 0;
+  backdrop-filter: blur(0);
 }
 .welcome-modal-text {
+  display: flex;
   font-size: 34px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0);
-  animation: fadeIn ease-in-out 3.5s;
+  animation: fade ease-in-out 3.5s;
   animation-delay: 0.5s;
 }
 .my-icon {
@@ -223,7 +219,21 @@
     background-position: 0% 50%;
   }
 }
-@keyframes fadeIn {
+@keyframes blur {
+  0% {
+    backdrop-filter: blur(10px);
+  }
+  20% {
+    backdrop-filter: blur(10px);
+  }
+  80% {
+    backdrop-filter: blur(10px);
+  }
+  100% {
+    backdrop-filter: blur(0);
+  }
+}
+@keyframes fade {
   0% {
     color: rgba(255, 255, 255, 0);
   }
